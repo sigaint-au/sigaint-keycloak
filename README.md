@@ -45,15 +45,16 @@ Create build manifest.
 apiVersion: shipwright.io/v1beta1
 kind: Build
 metadata:
-  name: kaniko-golang-build
+  name: sigaint-keycloak-build
 spec:
   source:
     type: Git
     git:
       url: https://github.com/sigaint-au/sigaint-keycloak
-v  strategy:
+  strategy:
     name: buildah
     kind: ClusterBuildStrategy
   output:
     image: quay.sigaint.au/sigaint/keycloak:latest
+    pushSecret: sigaint-shipwright-pull-secret
 ```
